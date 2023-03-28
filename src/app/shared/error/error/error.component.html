@@ -1,0 +1,24 @@
+<ng-container *ngIf="control.hasError('required')">
+    נדרש.
+  </ng-container>
+  <ng-container *ngIf="control.hasError('minlength')">
+    מינימום אורך {{ control.errors["minlength"].requiredLength }}
+  </ng-container>
+  <ng-container *ngIf="control.hasError('maxlength')">
+    מקסימום אורך {{ control.errors["maxlength"].requiredLength }}
+  </ng-container>
+  <ng-container *ngIf="control.hasError('pattern')">
+    לא חוקי.
+  </ng-container>
+  <ng-container *ngIf="control.hasError('email')">
+    אימייל אינו חוקי.
+  </ng-container>
+  
+ 
+  <ng-container *ngIf="control.hasError('notValidId')">
+    נדרש ת.ז. תקינה.
+  </ng-container>
+  <ng-container *ngIf="control.hasError('phoneNumber')">
+    נדרש מספר פלאפון תקין.
+  </ng-container>
+  

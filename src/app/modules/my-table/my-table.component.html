@@ -1,0 +1,55 @@
+<div dir="rtl" class="container">
+    <br/>
+    <br/>
+    <br/>
+    <button mat-button (click)="AddRow()" color="accent" style="border: #871919 solid 1px;">הוספת לקוח</button>
+    <br/>
+    <br/>
+<div class="mat-elevation-z8" style="border: 1px solid #871919;">
+    <table mat-table [dataSource]="dataSource" matSort>
+      
+      <ng-container [matColumnDef]="item.key" *ngFor="let item of userTestStatus
+      ">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>{{ item.lable }}</th>        
+        <td mat-cell *matCellDef="let emp">{{ item.type=='date'? (emp[item.key] | date:"dd/MM/yyyy") : emp[item.key] }}</td>
+      </ng-container>
+     
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" >
+          <button mat-icon-button color="primary" (click)="openEditDialogContact(row.id)" style="background-color: transparent; border: 0px none" title="אנשי קשר">
+            <mat-icon>assignment_ind</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" >
+          <button mat-icon-button color="primary" (click)="openEditDialog(row)" style="background-color: transparent; border: 0px none" title="עריכה">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" >
+          <button mat-icon-button color="primary" (click)="deleteRow(row)" style="background-color: transparent; border: 0px none" title="מחיקה">
+            <mat-icon >delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+     
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+    </table>
+      <!-- <mat-paginator 
+      [length]="length"
+      [pageSize]="pageSize"
+      (page)="pageEvent=$event;onPageChange($event)"
+        showFirstLastButtons
+        ></mat-paginator> -->
+      </div>
+
+    </div>

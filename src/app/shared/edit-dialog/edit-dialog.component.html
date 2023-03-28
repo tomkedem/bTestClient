@@ -1,0 +1,39 @@
+
+
+<div mat-dialog-content dir="rtl" [formGroup]="myForm">
+    <div ir="ltr"><h2 mat-dialog-title>{{formCaption}}</h2>
+    </div>
+    
+    <mat-form-field >
+      <input matInput formControlName="name" placeholder="שם">
+      <mat-error *ngIf="myForm.hasError('name') && !myForm.hasError('required')">
+        חובה לרשום שם
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="bNew">
+        <input matInput formControlName="customerNumber" placeholder="מספר ח.פ">
+        <mat-error *ngIf="myForm.hasError('customerNumber') && !myForm.hasError('required')">
+          חובה לרשום ח.פ לקוח
+        </mat-error>
+      </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="city" placeholder="עיר">
+      <mat-error *ngIf="myForm.hasError('city') && !myForm.hasError('required')">
+        בבקשה הזן עיר
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="street" placeholder="רחוב">
+        <mat-error *ngIf="myForm.hasError('street') && !myForm.hasError('required')">
+            בבקשה הזן רחוב
+          </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="postalCode" pattern="[0-9]*" placeholder="מיקוד">
+      </mat-form-field>  
+ 
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">ביטול</button>
+  <button mat-button color="primary" (click)="onSave()">שמירה</button>
+</div>

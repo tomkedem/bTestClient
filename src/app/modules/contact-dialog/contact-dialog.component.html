@@ -1,0 +1,32 @@
+<div dir="rtl" class="container">
+    <br/>
+    <br/>
+    <br/>
+    <button mat-button (click)="AddRow()" color="accent" style="border: #2057af solid 1px;">הוספת איש קשר</button>
+    <br/>
+    <br/>
+<div class="mat-elevation-z8" style="border: 1px solid #30c72e;">
+    <table mat-table [dataSource]="dataSource" matSort>
+      
+      <ng-container [matColumnDef]="item.key" *ngFor="let item of userTestStatus
+      ">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>{{ item.lable }}</th>        
+        <td mat-cell *matCellDef="let emp">{{ item.type=='date'? (emp[item.key] | date:"dd/MM/yyyy") : emp[item.key] }}</td>
+      </ng-container>
+     
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let emprow; columns: displayedColumns"></tr>
+    </table>
+   
+   
+   
+      </div>
+      <br/> <br/> <br/>
+      <div style="display: flex; justify-content: flex-end;">
+        <button mat-button (click)="onCancel()" style="border: #2057af solid 1px;"> סגירה</button>
+       
+      </div>
+
+    </div>
+
